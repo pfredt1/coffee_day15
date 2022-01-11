@@ -67,7 +67,7 @@ def get_money(choice):
             print(f" You still need to enter {drink_price - escrow_bal}")
 
         if escrow_bal > drink_price:
-            change = escrow_bal = drink_price
+            change = escrow_bal - drink_price
             print(f"your change {change} is being despenced")
     return drink_price
     print(escrow_bal)
