@@ -1,12 +1,26 @@
 from coffee import MENU
 from coffee import resources
 choice = ""
+new_money = 0
+
+def reports():
+    print(resources["water"])
+    print(f"water {resources['water']}")
+    print(f"milk {resources['milk']}")
+    print(f"coffee {resources['coffee']}")
+    print(f"money in machiene = {new_money}")
+
 def get_choice():
     choice = input("What would you like (e/l/c) espresso/latte/cappuccino? ")
     if choice == "off":
         exit()
+    elif choice == "reports":
+        reports()
+
     else:
         return choice
+
+
 def check_supplies(choice):
 
     enough_water = True
@@ -73,20 +87,19 @@ def get_money(choice):
     print(escrow_bal)
 
 
-new_money = 0.00
 
 
-while choice != "off":
-    choice = get_choice()
-    if check_supplies(choice):
-        new_money += get_money(choice)
-        make_drink(choice)
-    print(resources["water"])
-    print(f"water {resources['water']}")
-    print(f"milk {resources['milk']}")
-    print(f"coffee {resources['coffee']}")
-    print(f"money in machiene = {new_money}")
+def main_code():
 
+
+    choice = get_choice
+    if choice == "espresso" or choice == "latte" or choice == "milk":
+            check_supplies(choice)
+            new_money += get_money(choice)
+            make_drink(choice)
+    main_code()
+
+main_code()
 
 
 
