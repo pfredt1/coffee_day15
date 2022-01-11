@@ -11,7 +11,7 @@ def reports():
     print(f"money in machiene = {new_money}")
 
 def get_choice():
-    choice = input("What would you like (e/l/c) espresso/latte/cappuccino? ")
+    choice = input("What would you like espresso/latte/cappuccino? ")
     if choice == "off":
         exit()
     elif choice == "reports":
@@ -65,7 +65,7 @@ def get_money(choice):
     while escrow_bal < drink_price:
 
         print(f"The {choice} has a cost of {drink_price} \n")
-        new_money = input("please enter a quarter, dime, nickel or penny")
+        new_money = input("please enter a quarter, dime, nickel or penny ")
         if new_money == "off":
             exit()
         if new_money == "quarter":
@@ -82,7 +82,7 @@ def get_money(choice):
 
         if escrow_bal > drink_price:
             change = escrow_bal - drink_price
-            print(f"your change {change} is being despenced")
+            print(f"your change {change} is being dispenced")
     return drink_price
 
 
