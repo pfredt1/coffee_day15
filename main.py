@@ -84,7 +84,7 @@ def get_money(choice):
 
         if escrow_bal > drink_price:
             change = escrow_bal - drink_price
-            print(f"your change {change} is being dispenced")
+            print(f"your change {'{:.2f}'.format(round(change, 2))} is being dispenced")
     return drink_price
 
 
