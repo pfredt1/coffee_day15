@@ -4,11 +4,12 @@ choice = ""
 new_money = 0
 
 def reports():
-    print(resources["water"])
-    print(f"water {resources['water']}")
-    print(f"milk {resources['milk']}")
-    print(f"coffee {resources['coffee']}")
-    print(f"money in machiene = {new_money}")
+    print(f"water {resources['water']}ml")
+    print(f"milk {resources['milk']}ml")
+    print(f"coffee {resources['coffee']}g")
+    print(f"money in machiene = {'{:.2f}'.format(round(new_money, 2))}")
+
+   #  "{:.2f}".format(round(MENU[choice]["cost"], 2))
 
 def get_choice():
     choice = input("What would you like espresso/latte/cappuccino? ")
@@ -62,9 +63,10 @@ def get_money(choice):
     change = float
     change = 0.00
     drink_price = MENU[choice]["cost"]
+    display_drink_price = "{:.2f}".format(round(drink_price, 2))
     while escrow_bal < drink_price:
 
-        print(f"The {choice} has a cost of {drink_price} \n")
+        print(f"The {choice} has a cost of ${display_drink_price} \n")
         new_money = input("please enter a quarter, dime, nickel or penny ")
         if new_money == "off":
             exit()
@@ -76,9 +78,9 @@ def get_money(choice):
             escrow_bal += .05
         elif new_money == "penny":
             escrow_bal += .01
-        print(f" Your balance is now {escrow_bal}")
+        print(f" Your balance is now ${'{:.2f}'.format(round(escrow_bal, 2))}")
         if drink_price - escrow_bal > 0:
-            print(f" You still need to enter {drink_price - escrow_bal}")
+            print(f" You still need to enter ${'{:.2f}'.format(round(drink_price - escrow_bal, 2))}")
 
         if escrow_bal > drink_price:
             change = escrow_bal - drink_price
