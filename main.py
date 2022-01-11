@@ -1,11 +1,14 @@
 from coffee import MENU
 from coffee import resources
-
-power_on = True
+choice = ""
 def get_choice():
     choice = input("What would you like (e/l/c) espresso/latte/cappuccino? ")
-    return choice
+    if choice == "off":
+        exit()
+    else:
+        return choice
 def check_supplies(choice):
+
     enough_water = True
     enough_milk = True
     enough_coffee = True
@@ -33,10 +36,10 @@ def check_supplies(choice):
 
 def make_drink(choice):
 
-        resources["water"] -= MENU[choice]["ingredients"]["water"]
-        resources["milk"] -= MENU[choice]["ingredients"]["milk"]
-        resources["coffee"] -= MENU[choice]["ingredients"]["coffee"]
-        print(f"We hope you enjoy your stupid {choice} have a great day!")
+    resources["water"] -= MENU[choice]["ingredients"]["water"]
+    resources["milk"] -= MENU[choice]["ingredients"]["milk"]
+    resources["coffee"] -= MENU[choice]["ingredients"]["coffee"]
+    print(f"We hope you enjoy your stupid {choice} have a great day!")
 
 def get_money(choice):
 
@@ -71,7 +74,7 @@ def get_money(choice):
 new_money = 0.00
 
 
-while 1 == 1:
+while choice != "off":
     choice = get_choice()
     if check_supplies(choice):
         new_money += get_money(choice)
