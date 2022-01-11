@@ -52,6 +52,8 @@ def get_money(choice):
 
         print(f"The {choice} has a cost of {drink_price} \n")
         new_money = input("please enter a quarter, dime, nickel or penny")
+        if new_money == "off":
+            exit()
         if new_money == "quarter":
             escrow_bal += .25
         elif new_money == "dime":
