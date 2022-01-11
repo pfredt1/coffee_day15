@@ -84,22 +84,21 @@ def get_money(choice):
             change = escrow_bal - drink_price
             print(f"your change {change} is being despenced")
     return drink_price
-    print(escrow_bal)
 
 
 
 
-def main_code():
 
 
-    choice = get_choice
+while 1 == 1:
+    choice = get_choice()
     if choice == "espresso" or choice == "latte" or choice == "milk":
-            check_supplies(choice)
-            new_money += get_money(choice)
-            make_drink(choice)
-    main_code()
+        check_supplies(choice)
+        new_money += get_money(choice)
+        make_drink(choice)
 
-main_code()
+
+
 
 
 
